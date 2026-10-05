@@ -163,6 +163,8 @@ Sus fallas muestran los límites del enfoque por palabras clave:
 - **Pregunta 17:** entrega los atributos de ambas cepas, pero no sintetiza la diferencia (no dice, por ejemplo, que ambas son de cuerpo medio y que difieren en sus aromas).
 - **Pregunta 19:** "carmener" no coincide con ningún patrón, por lo que no reconoce la cepa y cae en una intención genérica que lista todos los valles.
 
+**Mejoras posteriores a la evaluación.** Tras el análisis se corrigieron tres limitaciones adicionales del chatbot Prolog: el adjetivo “español” no se reconocía como origen, no existían intenciones para regiones administrativas (la regla `cepa_en_region` no se usaba) y las preguntas por cepas de una zona respondían con valles. Las respuestas a las 20 preguntas del informe no cambian, y se agregaron 7 pruebas automáticas.
+
 ## 5.4 Análisis del chatbot LLM
 
 El chatbot LLM obtuvo 11 respuestas correctas, 5 parciales y 4 incorrectas (55 %), frente a las 17 correctas de Prolog (85 %). Sus aciertos y errores son de naturaleza distinta a los de Prolog.

@@ -98,6 +98,7 @@ es_tipo(cepa, E)  :- cepa(E, _).
 es_tipo(valle, E) :- valle(E, _, _, _).
 es_tipo(plato, E) :- marida(_, E).
 es_tipo(pais, E)  :- origen(_, E).
+es_tipo(region, E) :- valle(_, _, E, _).
 
 % Formas de escribir una entidad: su propio nombre (cabernet_sauvignon
 % -> [cabernet, sauvignon]) o un sinónimo. Así, un hecho nuevo en la base
@@ -135,6 +136,15 @@ sinonimo([aleman], alemania).
 sinonimo([alemana], alemania).
 sinonimo([alemanas], alemania).
 sinonimo([italiana], italia).
+sinonimo([italiano], italia).
+sinonimo([italianas], italia).
+sinonimo([italianos], italia).
+sinonimo([espanol], espana).
+sinonimo([egipcio], egipto).
+sinonimo([egipcia], egipto).
+sinonimo([egipcias], egipto).
+sinonimo([egipcios], egipto).
+sinonimo(['o\'higgins'], ohiggins).
 
 % menciona(+Tokens, ?Tipo, ?Entidad): la entidad aparece en la pregunta.
 menciona(Tokens, Tipo, E) :-
@@ -149,6 +159,23 @@ sublista(Sub, Lista) :-
 % entidades(+Tokens, +Tipo, -Lista): entidades distintas de ese tipo.
 entidades(Tokens, Tipo, Lista) :-
     findall(E, menciona(Tokens, Tipo, E), L),
+    sort(L, Lista).
+
+% region_mencionada(+Tokens, ?Region): la pregunta nombra una región administrativa.
+% Algunos nombres son a la vez valle y región (maule, biobio); en ese caso solo
+% cuenta como región si va precedido de la palabra "región" ("región del Maule").
+region_mencionada(Tokens, Reg) :-
+    es_tipo(region, Reg),
+    patron(Reg, Palabras),
+    (   \+ valle(Reg, _, _, _)
+    ;   member(Pre, [[], [de], [del], [de, la], [de, los]]),
+        append([region | Pre], Palabras, Sub),
+        sublista(Sub, Tokens)
+    ),
+    sublista(Palabras, Tokens).
+
+regiones_mencionadas(Tokens, Lista) :-
+    findall(R, region_mencionada(Tokens, R), L),
     sort(L, Lista).
 
 % alguna(+Tokens, +PalabrasClave): aparece al menos una palabra clave.
@@ -176,6 +203,11 @@ intencion(T, R) :-
 intencion(T, R) :-
     entidades(T, plato, [P | _]), !,
     resp_maridaje_plato(P, R).
+
+% --- Regiones administrativas ---
+intencion(T, R) :-
+    regiones_mencionadas(T, [Reg | _]), !,
+    intencion_region(T, Reg, R).
 
 % --- Cepa y valle juntos: ¿se cultiva? ---
 intencion(T, R) :-
@@ -227,6 +259,11 @@ intencion(T, R) :-
 intencion(T, R) :-
     alguna(T, [frio, fria, frios, frias, fresco, fresca]), !,
     resp_clima_frio(T, R).
+intencion(T, R) :-
+    palabra_zona(T, Z), alguna(T, [cepa, cepas, uva, uvas, variedades]), !,
+    findall(C, (zona(V, Z), cultiva(V, C)), L0),
+    list_to_set(L0, Cs), lista_texto(Cs, L),
+    format(atom(R), 'En los valles de la zona ~w se cultivan: ~w.', [Z, L]).
 intencion(T, R) :-
     palabra_zona(T, Z), !,
     findall(V, zona(V, Z), Vs),
@@ -317,6 +354,22 @@ intencion_valle(T, V, R) :-
 intencion_valle(_, V, R) :-
     ficha_valle(V, R).
 
+% Sub-intenciones cuando se menciona una región administrativa.
+intencion_region(T, Reg, R) :-
+    entidades(T, cepa, [C | _]), !,
+    resp_cepa_region(C, Reg, R).
+intencion_region(T, Reg, R) :-
+    alguna(T, [cepa, cepas, uva, uvas, variedades]), !,
+    resp_cepas_region(Reg, R).
+intencion_region(T, Reg, R) :-
+    alguna(T, [valle, valles]), !,
+    resp_valles_region(Reg, R).
+intencion_region(T, Reg, R) :-
+    alguna(T, [cultiva, cultivan, produce, producen]), !,
+    resp_cepas_region(Reg, R).
+intencion_region(_, Reg, R) :-
+    ficha_region(Reg, R).
+
 % ---------------------------------------------------------------------
 % 5. CONSTRUCCIÓN DE RESPUESTAS
 % ---------------------------------------------------------------------
@@ -349,6 +402,32 @@ ficha_valle(V, R) :-
     format(atom(R),
         'Valle de ~w: zona ~w, ubicado en ~w, clima ~w. Cepas principales: ~w.',
         [N, Z, NR, NK, L]).
+
+% Cepas de una región: usa la regla cepa_en_region/2 de la base.
+cepas_de_region(Reg, Cs) :-
+    findall(C, cepa_en_region(C, Reg), L0),
+    list_to_set(L0, Cs).
+
+resp_cepas_region(Reg, R) :-
+    cepas_de_region(Reg, Cs), lista_texto(Cs, L), texto_region(Reg, TR),
+    format(atom(R), 'En ~w se cultivan: ~w.', [TR, L]).
+
+resp_valles_region(Reg, R) :-
+    findall(V, region(V, Reg), Vs), lista_texto(Vs, L), texto_region(Reg, TR),
+    format(atom(R), 'Los valles de ~w son: ~w.', [TR, L]).
+
+ficha_region(Reg, R) :-
+    findall(V, region(V, Reg), Vs), lista_texto(Vs, LV),
+    cepas_de_region(Reg, Cs), lista_texto(Cs, LC), texto_region(Reg, TR),
+    format(atom(R), 'En ~w están los valles: ~w. Se cultivan: ~w.', [TR, LV, LC]).
+
+resp_cepa_region(C, Reg, R) :-
+    mostrar(C, N), texto_region(Reg, TR),
+    (   cepa_en_region(C, Reg)
+    ->  format(atom(R), 'Sí, ~w se cultiva en ~w.', [N, TR])
+    ;   findall(X, cepa_en_region(C, X), L0), list_to_set(L0, Rs), lista_texto(Rs, L),
+        format(atom(R), 'No, ~w no aparece cultivada en ~w. Se cultiva en las regiones de: ~w.', [N, TR, L])
+    ).
 
 resp_maridaje_plato(P, R) :-
     findall(C, recomendar(P, C), Cs),

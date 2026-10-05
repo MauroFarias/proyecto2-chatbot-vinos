@@ -16,6 +16,14 @@ CASOS_PROLOG = [
     ("¿A qué temperatura se sirve un Syrah?", "16 y 18"),
     ("QUE VALLES SON DEL SUR???", "Itata"),          # mayúsculas y puntuación
     ("¿De qué país viene el Merlot?", "Francia"),    # "país" como nación
+    # Mejoras posteriores a la evaluación
+    ("¿Qué cepas son de origen español?", "Carignan"),                      # adjetivo "español"
+    ("¿Qué cepas se cultivan en la región del Maule?", "Merlot"),           # cepas por región
+    ("¿Qué valles tiene la región de O'Higgins?", "Cachapoal"),             # valles por región
+    ("¿Se cultiva Malbec en la región Metropolitana?", "No, Malbec"),       # sí/no por región
+    ("¿Qué cepas se cultivan en el norte?", "Syrah"),                       # cepas por zona
+    ("¿En qué región está el valle del Maule?", "región de Maule"),         # valle y región homónimos
+    ("¿Qué cepas se cultivan en el valle de Maule?", "En el valle de Maule"),
 ]
 
 

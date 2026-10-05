@@ -1,0 +1,282 @@
+[
+  {
+    "n": 1,
+    "pregunta": "¿Qué cepas se cultivan en el valle de Colchagua?",
+    "prolog": {
+      "ok": true,
+      "texto": "En el valle de Colchagua se cultivan: Carménère, Cabernet Sauvignon, Syrah y Malbec.",
+      "segundos": 0.17
+    },
+    "llm": {
+      "ok": true,
+      "texto": "Se cultivan las cepas cabernet sauvignon, carmenere, syrah y malbec en el valle de Colchagua.",
+      "segundos": 4.16
+    }
+  },
+  {
+    "n": 2,
+    "pregunta": "¿En qué valles se produce Carménère?",
+    "prolog": {
+      "ok": true,
+      "texto": "Carménère se cultiva en los valles de: Aconcagua, Maipo, Cachapoal y Colchagua.",
+      "segundos": 0.09
+    },
+    "llm": {
+      "ok": true,
+      "texto": "El Carménère se produce en los valles de Aconcagua y Maipo.",
+      "segundos": 3.43
+    }
+  },
+  {
+    "n": 3,
+    "pregunta": "¿De dónde proviene la cepa País?",
+    "prolog": {
+      "ok": true,
+      "texto": "País proviene de España.",
+      "segundos": 0.07
+    },
+    "llm": {
+      "ok": true,
+      "texto": "La cepa País proviene de España.",
+      "segundos": 2.93
+    }
+  },
+  {
+    "n": 4,
+    "pregunta": "¿Qué vino me recomiendas para acompañar un ceviche?",
+    "prolog": {
+      "ok": true,
+      "texto": "Para acompañar ceviche te recomiendo: Sauvignon Blanc.",
+      "segundos": 0.17
+    },
+    "llm": {
+      "ok": true,
+      "texto": "Te recomiendo un Sauvignon Blanc para acompañar tu ceviche. Este vino tiene notas de cítricos y pasto recién cortado que complementan bien el sabor del pescado y los limones en el ceviche.",
+      "segundos": 5.4
+    }
+  },
+  {
+    "n": 5,
+    "pregunta": "¿Qué notas aromáticas tiene el Sauvignon Blanc?",
+    "prolog": {
+      "ok": true,
+      "texto": "Las notas aromáticas de Sauvignon Blanc son: cítricos, pasto recién cortado y maracuyá.",
+      "segundos": 0.17
+    },
+    "llm": {
+      "ok": true,
+      "texto": "El Sauvignon Blanc tiene notas aromáticas de cítricos, pasto recién cortado y maracuyá.",
+      "segundos": 3.88
+    }
+  },
+  {
+    "n": 6,
+    "pregunta": "¿Cómo es el clima del valle de Casablanca?",
+    "prolog": {
+      "ok": true,
+      "texto": "El valle de Casablanca tiene un clima costero fresco.",
+      "segundos": 0.18
+    },
+    "llm": {
+      "ok": true,
+      "texto": "El valle de Casablanca tiene un clima costero fresco.",
+      "segundos": 3.37
+    }
+  },
+  {
+    "n": 7,
+    "pregunta": "¿En qué región está el valle del Maipo?",
+    "prolog": {
+      "ok": true,
+      "texto": "El valle de Maipo está en la Región Metropolitana.",
+      "segundos": 0.18
+    },
+    "llm": {
+      "ok": true,
+      "texto": "El valle del Maipo está en la región administrativa de Metropolitana.",
+      "segundos": 3.41
+    }
+  },
+  {
+    "n": 8,
+    "pregunta": "¿Se cultiva Pinot Noir en el valle de Leyda?",
+    "prolog": {
+      "ok": true,
+      "texto": "Sí, Pinot Noir se cultiva en el valle de Leyda.",
+      "segundos": 0.07
+    },
+    "llm": {
+      "ok": true,
+      "texto": "No, el valle de Leyda no cultiva Pinot Noir. Sin embargo, sí cultiva Chardonnay y Pinot Noir en el valle de Casablanca.",
+      "segundos": 4.57
+    }
+  },
+  {
+    "n": 9,
+    "pregunta": "¿Por qué el Carménère se confundió con el Merlot durante años?",
+    "prolog": {
+      "ok": true,
+      "texto": "Comparación: Carménère es tinto, de cuerpo medio, origen Francia y notas de pimentón rojo, especias y frutos rojos maduros. Merlot es tinto, de cuerpo medio, origen Francia y notas de ciruela, cereza y chocolate.",
+      "segundos": 0.07
+    },
+    "llm": {
+      "ok": true,
+      "texto": "No tengo esa información en mi base de conocimiento.",
+      "segundos": 3.11
+    }
+  },
+  {
+    "n": 10,
+    "pregunta": "¿Cuál es la cepa emblemática de Chile?",
+    "prolog": {
+      "ok": true,
+      "texto": "La cepa emblemática de Chile es Carménère.",
+      "segundos": 0.18
+    },
+    "llm": {
+      "ok": true,
+      "texto": "La cepa emblemática de Chile es el Carmenere.",
+      "segundos": 3.16
+    }
+  },
+  {
+    "n": 11,
+    "pregunta": "¿Qué cepas comparten el Maipo y Colchagua?",
+    "prolog": {
+      "ok": true,
+      "texto": "Las cepas que comparten Colchagua y Maipo son: Carménère y Cabernet Sauvignon.",
+      "segundos": 0.17
+    },
+    "llm": {
+      "ok": true,
+      "texto": "Las cepas que comparten tanto el Valle de Maipo como el Valle de Colchagua son: cabernet sauvignon, carmenere y syrah.",
+      "segundos": 4.26
+    }
+  },
+  {
+    "n": 12,
+    "pregunta": "¿A qué temperatura se sirve un Syrah?",
+    "prolog": {
+      "ok": true,
+      "texto": "Syrah se sirve entre 16 y 18 °C.",
+      "segundos": 0.07
+    },
+    "llm": {
+      "ok": true,
+      "texto": "La temperatura de servicio para un Syrah es de 16 a 18 grados Celsius.",
+      "segundos": 3.62
+    }
+  },
+  {
+    "n": 13,
+    "pregunta": "¿Qué valles pertenecen a la zona sur?",
+    "prolog": {
+      "ok": true,
+      "texto": "Los valles de la zona sur son: Itata, Biobío y Malleco.",
+      "segundos": 0.18
+    },
+    "llm": {
+      "ok": true,
+      "texto": "Los valles que pertenecen a la zona sur son el valle de Itata y el valle de Biobío.",
+      "segundos": 4.06
+    }
+  },
+  {
+    "n": 14,
+    "pregunta": "¿Qué cepas son de origen francés?",
+    "prolog": {
+      "ok": true,
+      "texto": "Las cepas originarias de Francia son: Cabernet Sauvignon, Carménère, Merlot, Syrah, Pinot Noir, Cinsault, Malbec, Sauvignon Blanc y Chardonnay.",
+      "segundos": 0.18
+    },
+    "llm": {
+      "ok": true,
+      "texto": "Las cepas de origen francés son cabernet_sauvignon, carmenere, merlot, syrah y pinot_noir.",
+      "segundos": 4.06
+    }
+  },
+  {
+    "n": 15,
+    "pregunta": "¿Qué cepas se dan en valles de clima frío?",
+    "prolog": {
+      "ok": true,
+      "texto": "Las cepas que se cultivan en valles de clima frío o fresco son: Chardonnay, Cinsault, Gewürztraminer, Moscatel de Alejandría, País, Pinot Noir, Riesling y Sauvignon Blanc.",
+      "segundos": 0.18
+    },
+    "llm": {
+      "ok": true,
+      "texto": "Las cepas que se dan en valles de clima frío son: Carignan, Cinsault y Moscatel de Alejandría. Estas cepas se cultivan en valles como Elqui, Limari y Itata, que tienen climas fríos o frescos.",
+      "segundos": 5.78
+    }
+  },
+  {
+    "n": 16,
+    "pregunta": "¿Qué vino tinto ligero me recomiendas?",
+    "prolog": {
+      "ok": true,
+      "texto": "Cepas de vino tinto con cuerpo ligero: Pinot Noir, País y Cinsault.",
+      "segundos": 0.18
+    },
+    "llm": {
+      "ok": true,
+      "texto": "Te recomiendo el Pinot Noir, que es una cepa tinta con cuerpo ligero y se adapta bien para disfrutar en diferentes ocasiones.",
+      "segundos": 4.15
+    }
+  },
+  {
+    "n": 17,
+    "pregunta": "¿Cuál es la diferencia entre un Carménère y un Merlot?",
+    "prolog": {
+      "ok": true,
+      "texto": "Comparación: Carménère es tinto, de cuerpo medio, origen Francia y notas de pimentón rojo, especias y frutos rojos maduros. Merlot es tinto, de cuerpo medio, origen Francia y notas de ciruela, cereza y chocolate.",
+      "segundos": 0.07
+    },
+    "llm": {
+      "ok": true,
+      "texto": "El Carménère y el Merlot son dos cepas de uva distintas, aunque ambos producen vinos tintos. El Carménère es originario de Francia pero se cree que es una mutación del Merlot. En Chile, el Carménère se ha convertido en una cepa emblemática y se le atribuyen características únicas como un sabor más intenso y notas de pimienta y pimentón rojo. Por otro lado, el Merlot es conocido por su sabor suave y notas de frutas rojas como ciruela y cereza. Ambos vinos se pueden servir a una temperatura entre 16 y 18 grados Celsius.",
+      "segundos": 10.53
+    }
+  },
+  {
+    "n": 18,
+    "pregunta": "¿El Cabernet va con sushi?",
+    "prolog": {
+      "ok": true,
+      "texto": "No tengo registrado que Cabernet Sauvignon marida con sushi. Para ese plato recomiendo: Riesling.",
+      "segundos": 0.17
+    },
+    "llm": {
+      "ok": true,
+      "texto": "No, el Cabernet Sauvignon no va con sushi. Se recomienda más para carnes rojas y quesos maduros. Para sushi, se podría optar por un Sauvignon Blanc o un Riesling.",
+      "segundos": 4.98
+    }
+  },
+  {
+    "n": 19,
+    "pregunta": "¿Qué valles producen carmener?",
+    "prolog": {
+      "ok": true,
+      "texto": "Conozco estos valles vitivinícolas: Elqui, Limarí, Aconcagua, Casablanca, Leyda, Maipo, Cachapoal, Colchagua, Curicó, Maule, Itata, Biobío y Malleco.",
+      "segundos": 0.18
+    },
+    "llm": {
+      "ok": true,
+      "texto": "El valle de aconcagua produce carménère.",
+      "segundos": 3.1
+    }
+  },
+  {
+    "n": 20,
+    "pregunta": "¿Qué vino ganó un premio internacional en 2020?",
+    "prolog": {
+      "ok": true,
+      "texto": "Lo siento, no tengo información sobre eso en mi base de conocimiento. Prueba preguntando por una cepa, un valle o un plato.",
+      "segundos": 0.17
+    },
+    "llm": {
+      "ok": true,
+      "texto": "No tengo esa información en mi base de conocimiento.",
+      "segundos": 3.07
+    }
+  }
+]

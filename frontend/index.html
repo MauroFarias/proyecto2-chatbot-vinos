@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sommelier de Chile · Chatbot de vinos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="etiqueta">
+      <p class="cosecha">Chatbot de conocimiento</p>
+      <h1>Sommelier de Chile</h1>
+      <p class="origen">Cepas, valles y maridajes chilenos</p>
+    </header>
+
+    <fieldset class="motores">
+      <legend>Responder con</legend>
+      <label><input type="radio" name="motor" value="prolog"> Prolog</label>
+      <label><input type="radio" name="motor" value="llm"> LLM</label>
+      <label><input type="radio" name="motor" value="ambos" checked> Comparar ambos</label>
+    </fieldset>
+
+    <section id="chat" class="chat" aria-live="polite">
+      <p class="vacio">Haz una pregunta o prueba un ejemplo.</p>
+    </section>
+
+    <div class="ejemplos" id="ejemplos">
+      <button type="button">¿Qué cepas se cultivan en Colchagua?</button>
+      <button type="button">¿Qué vino va con un ceviche?</button>
+      <button type="button">Háblame del Carménère</button>
+      <button type="button">¿Qué valles son de clima frío?</button>
+    </div>
+
+    <div class="entrada">
+      <input id="pregunta" type="text" maxlength="300" autocomplete="off"
+             placeholder="Ej: ¿De dónde proviene la cepa País?" aria-label="Pregunta">
+      <button id="enviar" type="button">Preguntar</button>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

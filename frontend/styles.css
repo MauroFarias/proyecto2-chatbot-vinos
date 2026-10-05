@@ -1,0 +1,136 @@
+:root {
+  --fondo: #e9ece9;
+  --tinta: #261820;
+  --vino: #6b1e36;
+  --parra: #3f5e3a;
+  --papel: #ffffff;
+  --suave: #6d6a6e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font: 16px/1.5 "Karla", "Segoe UI", sans-serif;
+}
+
+.contenedor {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 100vh;
+}
+
+/* Encabezado con forma de etiqueta de vino */
+.etiqueta {
+  background: var(--papel);
+  border: 2px solid var(--vino);
+  outline: 1px solid var(--vino);
+  outline-offset: -8px;
+  padding: 26px 20px 22px;
+  text-align: center;
+}
+.etiqueta h1 {
+  margin: 4px 0;
+  font: 700 clamp(2.2rem, 6vw, 3.2rem)/1.05 "Cormorant Garamond", Georgia, serif;
+  color: var(--vino);
+}
+.cosecha, .origen { margin: 0; color: var(--suave); }
+.origen { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.2rem; }
+
+/* Selector de motor */
+.motores {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.motores legend { float: left; margin-right: 6px; color: var(--suave); }
+.motores label {
+  border: 1px solid var(--vino);
+  border-radius: 999px;
+  padding: 4px 14px;
+  cursor: pointer;
+}
+.motores input { accent-color: var(--vino); }
+.motores label:has(input:checked) { background: var(--vino); color: var(--papel); }
+
+/* Conversación */
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 240px;
+}
+.vacio { color: var(--suave); text-align: center; margin-top: 60px; }
+
+.msg-usuario {
+  align-self: flex-end;
+  max-width: 80%;
+  background: var(--vino);
+  color: var(--papel);
+  padding: 10px 14px;
+  border-radius: 14px 14px 2px 14px;
+}
+.respuestas { display: grid; gap: 10px; }
+.respuestas.doble { grid-template-columns: 1fr 1fr; }
+.msg-bot {
+  background: var(--papel);
+  padding: 10px 14px;
+  border-radius: 14px 14px 14px 2px;
+  border-left: 4px solid var(--parra);
+}
+.msg-bot.llm { border-left-color: var(--vino); }
+.msg-bot.error { border-left-color: #b3261e; color: #b3261e; }
+.motor { font-size: .8rem; font-weight: 600; color: var(--suave); margin: 0 0 4px; }
+.msg-bot p { margin: 0; white-space: pre-wrap; }
+
+/* Ejemplos y entrada */
+.ejemplos { display: flex; flex-wrap: wrap; gap: 8px; }
+.ejemplos button {
+  background: transparent;
+  border: 1px dashed var(--parra);
+  color: var(--parra);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+.entrada { display: flex; gap: 8px; position: sticky; bottom: 12px; }
+.entrada input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--suave);
+  border-radius: 10px;
+  font: inherit;
+}
+.entrada button {
+  background: var(--vino);
+  color: var(--papel);
+  border: none;
+  border-radius: 10px;
+  padding: 0 20px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.entrada button:disabled { opacity: .6; cursor: wait; }
+
+button:focus-visible, input:focus-visible, label:focus-within {
+  outline: 3px solid var(--parra);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .respuestas.doble { grid-template-columns: 1fr; }
+}
